@@ -2,7 +2,11 @@
 
 - Always remember to commit your changes after editing files.
 
-## API reference
+## Project Description 
+
+Our goal is to create an MCP server for the Traveller Map (https://travellermap.com) in TypeScript that can be used to access its API.
+
+### TravellerMap API reference:
 
 Documentation for the TravellerMap API can be found at https://travellermap.com/doc/api. You can use your WebFetch tool to access it.
 
@@ -13,7 +17,7 @@ Adherence to existing code patterns in `game.js`, `style.css`, and `index.html` 
 - **General**:
     - Prioritize readability and simplicity.
     - Keep functions concise and focused on a single responsibility.
-- **JavaScript (`game.js`)**:
+- **JavaScript/TypeScript**:
     - **Naming Conventions**:
         - Variables and functions: `snake_case ` (e.g., `player_health`, `update_game_area`). Using camelCase for the names of functions or variables is NOT permitted (other than for built in/library-provided variables/functions, since we aren't the one picking those names).
         - Constants: `SCREAMING_SNAKE_CASE` (e.g., `TILE_SIZE`).
