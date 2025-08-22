@@ -6,10 +6,8 @@ async function testNewTools() {
   try {
     console.log('=== Testing New Traveller Map Tools ===\n');
     
-    // Test 1: Search for worlds
-    console.log('1. Searching for worlds named "Regina"...');
-    const searchResults = await client.search_worlds('Regina');
-    console.log(`   Results object keys: ${Object.keys(searchResults)}`);
+    const searchResults = await client.traveller_map_search('Regina');
+  console.log('Search Results:', JSON.stringify(searchResults, null, 2));
     if (searchResults.Results) {
       console.log(`   Count: ${searchResults.Results.Count}`);
       console.log(`   Items count: ${searchResults.Results.Items ? searchResults.Results.Items.length : 0}`);

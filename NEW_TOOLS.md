@@ -26,21 +26,7 @@ Get an image of a subsector within a sector.
 }
 ```
 
-### 2. search_worlds
-Search for worlds by name across the Traveller universe.
 
-**Parameters:**
-- `query` (string, required): World name to search for
-
-**Example:**
-```json
-{
-  "name": "search_worlds",
-  "arguments": {
-    "query": "Regina"
-  }
-}
-```
 
 ### 3. get_world_info
 Get detailed information about a specific world.

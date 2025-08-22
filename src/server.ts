@@ -152,17 +152,6 @@ class TravellerMapServer {
             }]
           };
           
-        case 'search_worlds':
-          if (!args.query) {
-            throw new Error('Missing required argument: query');
-          }
-          return {
-            content: [{
-              type: 'text',
-              text: JSON.stringify(await this.traveller_map_client.search_worlds(args.query), null, 2)
-            }]
-          };
-          
         case 'get_world_info':
           if (!args.sector || !args.hex) {
             throw new Error('Missing required arguments: sector and hex');

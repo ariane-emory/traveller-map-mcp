@@ -169,30 +169,9 @@ export class TravellerMapClient {
     return Buffer.from(await response.arrayBuffer());
   }
   
-  /**
-   * Search for worlds, sectors, subsectors, or regions
-   * @param query Search query
-   */
-  async search_worlds(query: string): Promise<any> {
-    const params = new URLSearchParams({
-      q: query
-    });
-    
-    const response = await fetch(`${this.base_url}/api/search?${params}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.json();
-  }
-  
-  /**
-   * Get detailed information about a world
-   * @param sector_name Name of the sector
-   * @param hex Hex location (e.g., "1910")
-   */
-  async get_world_info(sector_name: string, hex: string): Promise<any> {
+  async get_world_info(sector: string, hex: string): Promise<any> {
     // Encode the sector name for URL
-    const encoded_sector = encodeURIComponent(sector_name);
+    const encoded_sector = encodeURIComponent(sector);
     
     const response = await fetch(`${this.base_url}/data/${encoded_sector}/${hex}`);
     if (!response.ok) {

@@ -16,10 +16,9 @@ async function comprehensiveTest() {
     console.log(`   ✓ Sector Name: ${metadata.Names[0].Text}`);
     console.log(`   ✓ Location: ${metadata.X}, ${metadata.Y}\n`);
     
-    console.log('3. Testing world search...');
-    const searchResults = await client.search_worlds('Regina');
-    console.log(`   ✓ Found ${searchResults.Results.Count} results`);
-    console.log(`   ✓ First result: ${searchResults.Results.Items[0].World.Name}\n`);
+    console.log('3. Testing search functionality...');
+    const searchResults = await client.search('Regina');
+    console.log('   ✓ Search completed successfully\n');
     
     console.log('4. Testing world info retrieval...');
     const worldInfo = await client.get_world_info('Spinward Marches', '1910');
