@@ -11,7 +11,7 @@
     },
     {
       "name": "get_sector",
-      "description": "Get data for a specific sector",
+      "description": "Get data for a specific sector in the Traveller universe",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -31,7 +31,7 @@
     },
     {
       "name": "traveller_map_search",
-      "description": "Search for sectors, subsectors, worlds, or regions",
+      "description": "Search for sectors, subsectors, worlds, or regions in the Traveller universe",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -51,11 +51,11 @@
     },
     {
       "name": "get_route",
-      "description": "Get a route between two locations",
+      "description": "Get a route between two locations in the Traveller universe",
       "inputSchema": {
         "type": "object",
         "properties": {
-          "start": {
+          "start": { 
             "type": "string",
             "description": "Starting location (sector/hex or world name)"
           },
@@ -75,7 +75,7 @@
     },
     {
       "name": "get_sector_metadata",
-      "description": "Get metadata for a specific sector",
+      "description": "Get metadata for a specific sector in the Traveller universe",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -90,7 +90,7 @@
     },
     {
       "name": "get_hex_data",
-      "description": "Get data for a specific hex in a sector",
+      "description": "Get data for a specific hex in a sector in the Traveller universe",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -109,7 +109,7 @@
     },
     {
       "name": "get_sector_image",
-      "description": "Get an image of a sector",
+      "description": "Get an image of a Traveller universe sector",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -137,7 +137,7 @@
     },
     {
       "name": "get_subsector_image",
-      "description": "Get an image of a subsector",
+      "description": "Get an image of a Traveller universe subsector",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -169,7 +169,7 @@
     },
     {
       "name": "get_worlds_in_jump_range",
-      "description": "Get worlds within a jump distance from a specific hex",
+      "description": "Get worlds in the Traveller universe within a jump distance from a specific hex",
       "inputSchema": {
         "type": "object",
         "properties": {
