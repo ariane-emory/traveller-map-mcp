@@ -65,14 +65,12 @@ The TypeScript client (`traveller-map-client.ts`) has been updated with methods 
 6. **get_hex_data()** - Get data for a specific hex
 7. **get_sector_image()** - Get an image of a sector
 8. **get_subsector_image()** - Get an image of a subsector
-9. **search_worlds()** - Search for worlds by name
-10. **get_world_info()** - Get detailed world information
+9. **get_world_info()** - Get detailed world information
 
 ## Testing Results
 
 All new tools have been tested and verified to work correctly:
 
-- ✅ World search returns accurate results
 - ✅ World information retrieval works correctly
 - ✅ Subsector image endpoint is accessible
 - ✅ Sector image endpoint is accessible

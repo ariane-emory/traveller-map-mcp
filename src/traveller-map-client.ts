@@ -52,7 +52,7 @@ export class TravellerMapClient {
    */
   async search(query: string): Promise<any> {
     const params = new URLSearchParams({
-      term: query
+      q: query
     });
     
     const response = await fetch(`${this.base_url}/api/search?${params}`);

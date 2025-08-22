@@ -5,7 +5,7 @@ async function testSearch() {
   
   try {
     console.log('Testing search functionality...');
-    const searchResults = await client.search('Regina');
+    const searchResults = await client.search('Mora');
     console.log('Search Results:', JSON.stringify(searchResults, null, 2));
   } catch (error) {
     console.error('Error:', error.message);
