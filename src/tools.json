@@ -168,6 +168,31 @@
       }
     },
     {
+      "name": "get_worlds_in_jump_range",
+      "description": "Get worlds within a jump distance from a specific hex",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          },
+          "hex": {
+            "type": "string",
+            "description": "Hex location (e.g., \"0101\")"
+          },
+          "jump_distance": {
+            "type": "number",
+            "description": "Jump distance (0 through 12)",
+            "minimum": 0,
+            "maximum": 12
+          }
+        },
+        "required": ["sector", "hex", "jump_distance"],
+        "additionalProperties": false
+      }
+    },
+    {
       "name": "get_world_wiki_url",
       "description": "Construct a wiki URL for a Traveller world",
       "inputSchema": {

@@ -17,6 +17,7 @@ The Traveller Map MCP provides the following tools:
 9. **get_world_wiki_url** - Construct a wiki URL for a Traveller world
 10. **get_subsector_wiki_url** - Construct a wiki URL for a Traveller subsector
 11. **get_sector_wiki_url** - Construct a wiki URL for a Traveller sector
+12. **get_worlds_in_jump_range** - Get worlds within a jump distance from a specific hex
 
 ### Tool Parameters
 
@@ -66,6 +67,11 @@ No parameters required.
 
 #### get_sector_wiki_url
 - `sector_name` (string, required) - Name of the sector
+
+#### get_worlds_in_jump_range
+- `sector` (string, required) - Name of the sector
+- `hex` (string, required) - Hex location (e.g., "0101")
+- `jump_distance` (number, required) - Jump distance (0 through 12)
 
 ## Installation
 

@@ -168,6 +168,30 @@ export class TravellerMapClient {
   }
   
   /**
+   * Get worlds within a jump distance from a specific hex
+   * @param sector_name Name of the sector
+   * @param hex Hex location (e.g., "2913")
+   * @param jump_distance Jump distance (0 through 12)
+   */
+  async get_worlds_in_jump_range(sector_name: string, hex: string, jump_distance: number): Promise<any> {
+    // Validate jump distance
+    if (jump_distance < 0 || jump_distance > 12) {
+      throw new Error('Jump distance must be between 0 and 12');
+    }
+    
+    // Encode the sector name for URL
+    const encoded_sector = encodeURIComponent(sector_name);
+    
+    const url = `${this.base_url}/data/${encoded_sector}/${hex}/jump/${jump_distance}`;
+    
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  }
+  
+  /**
    * Construct a wiki URL for a Traveller world
    * @param world_name Name of the world
    * @param sector_name Name of the sector (optional)

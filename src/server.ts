@@ -171,6 +171,21 @@ class TravellerMapServer {
             throw new Error(`Failed to retrieve subsector image: ${error instanceof Error ? error.message : String(error)}`);
           };
 
+        case 'get_worlds_in_jump_range':
+          if (!args.sector || !args.hex || args.jump_distance === undefined) {
+            throw new Error('Missing required arguments: sector, hex, and jump_distance');
+          }
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify(await this.traveller_map_client.get_worlds_in_jump_range(
+                args.sector, 
+                args.hex, 
+                args.jump_distance
+              ), null, 2)
+            }]
+          };
+
         case 'traveller_map_search':
           if (!args.query) {
             throw new Error('Missing required argument: query');
