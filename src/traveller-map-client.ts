@@ -31,7 +31,7 @@ export class TravellerMapClient {
    * @param sector_name Name of the sector
    * @param format Data format (sec, t5ss, json, etc.)
    */
-  async get_sector(sector_name: string, format: string = 'json'): Promise<any> {
+  async get_sector(sector_name: string, format: string = 'sec'): Promise<any> {
     const params = new URLSearchParams({
       sector: sector_name,
       type: format
@@ -42,11 +42,8 @@ export class TravellerMapClient {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     
-    if (format === 'json') {
-      return await response.json();
-    } else {
-      return await response.text();
-    }
+    // Sector data is returned as text in various formats
+    return await response.text();
   }
   
   /**
@@ -141,5 +138,66 @@ export class TravellerMapClient {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return Buffer.from(await response.arrayBuffer());
+  }
+  
+  /**
+   * Get an image of a subsector
+   * @param sector_name Name of the sector
+   * @param subsector Subsector letter (A-P)
+   * @param options Image options
+   */
+  async get_subsector_image(sector_name: string, subsector: string, options: { 
+    style?: string; 
+    width?: number; 
+    height?: number 
+  } = {}): Promise<Buffer> {
+    // Encode the sector name for URL
+    const encoded_sector = encodeURIComponent(sector_name);
+    
+    const params = new URLSearchParams({
+      ...(options.style && { style: options.style }),
+      ...(options.width && { width: options.width.toString() }),
+      ...(options.height && { height: options.height.toString() })
+    });
+    
+    const url = `${this.base_url}/data/${encoded_sector}/${subsector}/image${params.toString() ? '?' + params.toString() : ''}`;
+    
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return Buffer.from(await response.arrayBuffer());
+  }
+  
+  /**
+   * Search for worlds, sectors, subsectors, or regions
+   * @param query Search query
+   */
+  async search_worlds(query: string): Promise<any> {
+    const params = new URLSearchParams({
+      q: query
+    });
+    
+    const response = await fetch(`${this.base_url}/api/search?${params}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  }
+  
+  /**
+   * Get detailed information about a world
+   * @param sector_name Name of the sector
+   * @param hex Hex location (e.g., "1910")
+   */
+  async get_world_info(sector_name: string, hex: string): Promise<any> {
+    // Encode the sector name for URL
+    const encoded_sector = encodeURIComponent(sector_name);
+    
+    const response = await fetch(`${this.base_url}/data/${encoded_sector}/${hex}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
   }
 }

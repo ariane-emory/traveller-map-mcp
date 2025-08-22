@@ -127,6 +127,53 @@ class TravellerMapServer {
             }]
           };
           
+        case 'get_sector_image':
+          if (!args.sector) {
+            throw new Error('Missing required argument: sector');
+          }
+          // For images, we'll return a message indicating the tool is available
+          // In a real implementation, we might save the image to a file and return the path
+          return {
+            content: [{
+              type: 'text',
+              text: `Sector image tool called for sector: ${args.sector}. In a full implementation, this would return the image data.`
+            }]
+          };
+          
+        case 'get_subsector_image':
+          if (!args.sector || !args.subsector) {
+            throw new Error('Missing required arguments: sector and subsector');
+          }
+          // For images, we'll return a message indicating the tool is available
+          return {
+            content: [{
+              type: 'text',
+              text: `Subsector image tool called for sector: ${args.sector}, subsector: ${args.subsector}. In a full implementation, this would return the image data.`
+            }]
+          };
+          
+        case 'search_worlds':
+          if (!args.query) {
+            throw new Error('Missing required argument: query');
+          }
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify(await this.traveller_map_client.search_worlds(args.query), null, 2)
+            }]
+          };
+          
+        case 'get_world_info':
+          if (!args.sector || !args.hex) {
+            throw new Error('Missing required arguments: sector and hex');
+          }
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify(await this.traveller_map_client.get_world_info(args.sector, args.hex), null, 2)
+            }]
+          };
+          
         default:
           throw new Error(`Unknown tool: ${name}`);
       }

@@ -101,6 +101,98 @@
         "required": ["sector", "hex"],
         "additionalProperties": false
       }
+    },
+    {
+      "name": "get_sector_image",
+      "description": "Get an image of a sector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          },
+          "style": {
+            "type": "string",
+            "description": "Image style (atlas, poster, print, candy, draft, fugue)"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width of the image in pixels"
+          },
+          "height": {
+            "type": "number",
+            "description": "Height of the image in pixels"
+          }
+        },
+        "required": ["sector"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_subsector_image",
+      "description": "Get an image of a subsector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          },
+          "subsector": {
+            "type": "string",
+            "description": "Subsector letter (A-P)"
+          },
+          "style": {
+            "type": "string",
+            "description": "Image style (atlas, poster, print, candy, draft, fugue)"
+          },
+          "width": {
+            "type": "number",
+            "description": "Width of the image in pixels"
+          },
+          "height": {
+            "type": "number",
+            "description": "Height of the image in pixels"
+          }
+        },
+        "required": ["sector", "subsector"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_worlds",
+      "description": "Search for worlds by name",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "World name to search for"
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_world_info",
+      "description": "Get detailed information about a world",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          },
+          "hex": {
+            "type": "string",
+            "description": "Hex location (e.g., \"1910\")"
+          }
+        },
+        "required": ["sector", "hex"],
+        "additionalProperties": false
+      }
     }
   ]
 }
