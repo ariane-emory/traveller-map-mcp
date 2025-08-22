@@ -126,7 +126,7 @@ export class TravellerMapClient {
   } = {}): Promise<Buffer> {
     const params = new URLSearchParams({
       sector: sector_name,
-      ...(options.style && { style: options.style }),
+      style: options.style || 'poster',
       ...(options.width && { width: options.width.toString() }),
       ...(options.height && { height: options.height.toString() })
     });
@@ -153,7 +153,7 @@ export class TravellerMapClient {
     const encoded_sector = encodeURIComponent(sector_name);
     
     const params = new URLSearchParams({
-      ...(options.style && { style: options.style }),
+      style: options.style || 'poster',
       ...(options.width && { width: options.width.toString() }),
       ...(options.height && { height: options.height.toString() })
     });

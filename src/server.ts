@@ -122,25 +122,53 @@ class TravellerMapServer {
           if (!args.sector) {
             throw new Error('Missing required argument: sector');
           }
-          // For images, we'll return a message indicating the tool is available
-          // In a real implementation, we might save the image to a file and return the path
-          return {
-            content: [{
-              type: 'text',
-              text: `Sector image tool called for sector: ${args.sector}. In a full implementation, this would return the image data.`
-            }]
+          try {
+            const image_buffer = await this.traveller_map_client.get_sector_image(
+              args.sector, 
+              { 
+                style: args.style || 'poster',
+                width: args.width,
+                height: args.height
+              }
+            );
+            
+            // For now, we'll return a message with image info since we can't easily return binary data
+            // In a full implementation, you might save the image to a file and return the path
+            return {
+              content: [{
+                type: 'text',
+                text: `Sector image retrieved for sector: ${args.sector}. Image size: ${image_buffer.length} bytes. Style: ${args.style || 'poster'}.`
+              }]
+            };
+          } catch (error) {
+            throw new Error(`Failed to retrieve sector image: ${error instanceof Error ? error.message : String(error)}`);
           };
           
         case 'get_subsector_image':
           if (!args.sector || !args.subsector) {
             throw new Error('Missing required arguments: sector and subsector');
           }
-          // For images, we'll return a message indicating the tool is available
-          return {
-            content: [{
-              type: 'text',
-              text: `Subsector image tool called for sector: ${args.sector}, subsector: ${args.subsector}. In a full implementation, this would return the image data.`
-            }]
+          try {
+            const image_buffer = await this.traveller_map_client.get_subsector_image(
+              args.sector, 
+              args.subsector,
+              { 
+                style: args.style || 'poster',
+                width: args.width,
+                height: args.height
+              }
+            );
+            
+            // For now, we'll return a message with image info since we can't easily return binary data
+            // In a full implementation, you might save the image to a file and return the path
+            return {
+              content: [{
+                type: 'text',
+                text: `Subsector image retrieved for sector: ${args.sector}, subsector: ${args.subsector}. Image size: ${image_buffer.length} bytes. Style: ${args.style || 'poster'}.`
+              }]
+            };
+          } catch (error) {
+            throw new Error(`Failed to retrieve subsector image: ${error instanceof Error ? error.message : String(error)}`);
           };
 
         case 'traveller_map_search':

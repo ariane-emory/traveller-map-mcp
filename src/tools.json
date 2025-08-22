@@ -119,7 +119,8 @@
           },
           "style": {
             "type": "string",
-            "description": "Image style (atlas, poster, print, candy, draft, fugue)"
+            "description": "Image style (atlas, poster, print, candy, draft, fugue)",
+            "default": "poster"
           },
           "width": {
             "type": "number",
@@ -150,7 +151,8 @@
           },
           "style": {
             "type": "string",
-            "description": "Image style (atlas, poster, print, candy, draft, fugue)"
+            "description": "Image style (atlas, poster, print, candy, draft, fugue)",
+            "default": "poster"
           },
           "width": {
             "type": "number",
