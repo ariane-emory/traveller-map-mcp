@@ -12,6 +12,8 @@ import { TravellerMapClient } from './traveller-map-client.js';
 import * as fs from 'fs';
 import * as path from 'path';
 
+import * as https from 'https';
+
 // Load tools manifest
 const tools_manifest_path = path.join(__dirname, 'tools.json');
 const tools_manifest = JSON.parse(fs.readFileSync(tools_manifest_path, 'utf-8'));
@@ -145,10 +147,12 @@ class TravellerMapServer {
           if (!args.query) {
             throw new Error('Missing required argument: query');
           }
+          const search_result = await this.traveller_map_client.search(args.query);
+          const formatted = args.formatted !== undefined ? args.formatted : true;
           return {
             content: [{
               type: 'text',
-              text: JSON.stringify(await this.traveller_map_client.search(args.query), null, 2)
+              text: formatted ? JSON.stringify(search_result, null, 2) : JSON.stringify(search_result)
             }]
           };
           

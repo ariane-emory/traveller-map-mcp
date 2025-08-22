@@ -8,10 +8,19 @@ The Traveller Map MCP provides the following tools:
 
 1. **get_universe** - Get the list of all sectors in the Traveller universe
 2. **get_sector** - Get data for a specific sector
-3. **search** - Search for sectors, subsectors, worlds, or regions
+3. **traveller_map_search** - Search for sectors, subsectors, worlds, or regions
 4. **get_route** - Get a route between two locations
 5. **get_sector_metadata** - Get metadata for a specific sector
 6. **get_hex_data** - Get data for a specific hex in a sector
+7. **get_sector_image** - Get an image of a sector
+8. **get_subsector_image** - Get an image of a subsector
+9. **get_world_info** - Get detailed information about a world
+
+### Tool Parameters
+
+#### traveller_map_search
+- `query` (string, required) - Search query term
+- `formatted` (boolean, optional, default: true) - Whether to format the JSON output with indentation
 
 ## Installation
 
