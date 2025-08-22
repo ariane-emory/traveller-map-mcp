@@ -104,12 +104,10 @@ export class TravellerMapClient {
    * @param hex Hex location (e.g., "0101")
    */
   async get_hex_data(sector_name: string, hex: string): Promise<any> {
-    const params = new URLSearchParams({
-      sector: sector_name,
-      hex: hex
-    });
+    // Encode the sector name for URL
+    const encoded_sector = encodeURIComponent(sector_name);
     
-    const response = await fetch(`${this.base_url}/api/hex?${params}`);
+    const response = await fetch(`${this.base_url}/data/${encoded_sector}/${hex}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
