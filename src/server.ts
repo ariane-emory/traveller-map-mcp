@@ -83,17 +83,6 @@ class TravellerMapServer {
             }]
           };
           
-        case 'traveller_map_search':
-          if (!args.query) {
-            throw new Error('Missing required argument: query');
-          }
-          return {
-            content: [{
-              type: 'text',
-              text: JSON.stringify(await this.traveller_map_client.search(args.query), null, 2)
-            }]
-          };
-          
         case 'get_route':
           if (!args.start || !args.end) {
             throw new Error('Missing required arguments: start and end');
@@ -149,6 +138,17 @@ class TravellerMapServer {
             content: [{
               type: 'text',
               text: `Subsector image tool called for sector: ${args.sector}, subsector: ${args.subsector}. In a full implementation, this would return the image data.`
+            }]
+          };
+
+        case 'traveller_map_search':
+          if (!args.query) {
+            throw new Error('Missing required argument: query');
+          }
+          return {
+            content: [{
+              type: 'text',
+              text: JSON.stringify(await this.traveller_map_client.search(args.query), null, 2)
             }]
           };
           

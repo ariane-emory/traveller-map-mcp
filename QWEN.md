@@ -1,6 +1,6 @@
 # LLM Instructions
 
-- Always remember to commit your changes after editing files.
+- Remember to ALWAYS remember to commit your changes after editing files.
 
 ## Project Description 
 
