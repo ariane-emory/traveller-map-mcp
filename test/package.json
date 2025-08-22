@@ -1,0 +1,12 @@
+{
+  "name": "traveller-map-mcp-test",
+  "version": "1.0.0",
+  "description": "Test client for Traveller Map MCP",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test-client.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.3"
+  }
+}

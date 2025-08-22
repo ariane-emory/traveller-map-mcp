@@ -1,0 +1,30 @@
+{
+  "name": "traveller-map-mcp",
+  "version": "1.0.0",
+  "description": "Vibe coding an MCP for travellermap.com.",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc && cp src/tools.json dist/tools.json",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ariane-emory/traveller-map-mcp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ariane-emory/traveller-map-mcp/issues"
+  },
+  "homepage": "https://github.com/ariane-emory/traveller-map-mcp#readme",
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.3",
+    "@types/node": "^24.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

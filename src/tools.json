@@ -1,0 +1,106 @@
+{
+  "tools": [
+    {
+      "name": "get_universe",
+      "description": "Get the list of all sectors in the Traveller universe",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_sector",
+      "description": "Get data for a specific sector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          },
+          "format": {
+            "type": "string",
+            "description": "Data format (sec, t5ss, json, etc.)",
+            "default": "json"
+          }
+        },
+        "required": ["sector"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "traveller_map_search",
+      "description": "Search for sectors, subsectors, worlds, or regions",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query term"
+          }
+        },
+        "required": ["query"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_route",
+      "description": "Get a route between two locations",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Starting location (sector/hex or world name)"
+          },
+          "end": {
+            "type": "string",
+            "description": "Ending location (sector/hex or world name)"
+          },
+          "jumps": {
+            "type": "number",
+            "description": "Number of jumps allowed",
+            "default": 4
+          }
+        },
+        "required": ["start", "end"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_sector_metadata",
+      "description": "Get metadata for a specific sector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          }
+        },
+        "required": ["sector"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_hex_data",
+      "description": "Get data for a specific hex in a sector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector": {
+            "type": "string",
+            "description": "Name of the sector"
+          },
+          "hex": {
+            "type": "string",
+            "description": "Hex location (e.g., \"0101\")"
+          }
+        },
+        "required": ["sector", "hex"],
+        "additionalProperties": false
+      }
+    }
+  ]
+}
