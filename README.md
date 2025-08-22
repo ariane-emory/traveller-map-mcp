@@ -11,10 +11,9 @@ The Traveller Map MCP provides the following tools:
 3. **traveller_map_search** - Search for sectors, subsectors, worlds, or regions
 4. **get_route** - Get a route between two locations
 5. **get_sector_metadata** - Get metadata for a specific sector
-6. **get_hex_data** - Get data for a specific hex in a sector (alternative to get_world_info)
+6. **get_hex_data** - Get data for a specific hex in a sector
 7. **get_sector_image** - Get an image of a sector
 8. **get_subsector_image** - Get an image of a subsector
-9. **get_world_info** - Get detailed information about a world (alternative to get_hex_data)
 
 ### Tool Parameters
 

@@ -164,26 +164,6 @@
         "required": ["sector", "subsector"],
         "additionalProperties": false
       }
-    },
-    
-    {
-      "name": "get_world_info",
-      "description": "Get detailed information about a world",
-      "inputSchema": {
-        "type": "object",
-        "properties": {
-          "sector": {
-            "type": "string",
-            "description": "Name of the sector"
-          },
-          "hex": {
-            "type": "string",
-            "description": "Hex location (e.g., \"1910\")"
-          }
-        },
-        "required": ["sector", "hex"],
-        "additionalProperties": false
-      }
     }
   ]
 }

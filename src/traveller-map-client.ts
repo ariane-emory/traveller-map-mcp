@@ -167,14 +167,5 @@ export class TravellerMapClient {
     return Buffer.from(await response.arrayBuffer());
   }
   
-  async get_world_info(sector: string, hex: string): Promise<any> {
-    // Encode the sector name for URL
-    const encoded_sector = encodeURIComponent(sector);
-    
-    const response = await fetch(`${this.base_url}/data/${encoded_sector}/${hex}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return await response.json();
-  }
+  
 }

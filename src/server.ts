@@ -160,14 +160,7 @@ class TravellerMapServer {
           if (!args.sector || !args.hex) {
             throw new Error('Missing required arguments: sector and hex');
           }
-          return {
-            content: [{
-              type: 'text',
-              text: JSON.stringify(await this.traveller_map_client.get_world_info(args.sector, args.hex), null, 2)
-            }]
-          };
-          
-        default:
+          default:
           throw new Error(`Unknown tool: ${name}`);
       }
     } catch (error) {
