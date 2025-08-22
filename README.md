@@ -30,6 +30,25 @@ npm start
 
 The server communicates over stdio and is designed to be used with an MCP client.
 
+## Configuration
+
+To use this MCP server with Qwen, add the following to your `.qwen/settings.json` file:
+
+```json
+{
+  "mcpServers": {
+    "traveller-map": {
+      "command": "node",
+      "args": [
+        "/path/to/traveller-map-mcp/dist/server.js"
+      ]
+    }
+  }
+}
+```
+
+Replace `/path/to/traveller-map-mcp` with the actual path to this repository on your system.
+
 ## Development
 
 For development with hot reloading:
