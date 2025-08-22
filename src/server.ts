@@ -188,7 +188,17 @@ class TravellerMapServer {
           if (!args.sector || !args.hex) {
             throw new Error('Missing required arguments: sector and hex');
           }
-          default:
+          
+        case 'get_world_wiki_url':
+          return await this.handle_get_world_wiki_url(args);
+          
+        case 'get_subsector_wiki_url':
+          return await this.handle_get_subsector_wiki_url(args);
+          
+        case 'get_sector_wiki_url':
+          return await this.handle_get_sector_wiki_url(args);
+          
+        default:
           throw new Error(`Unknown tool: ${name}`);
       }
     } catch (error) {
@@ -200,6 +210,49 @@ class TravellerMapServer {
         isError: true
       };
     }
+  }
+
+  private async handle_get_world_wiki_url(args: any): Promise<CallToolResult> {
+    if (!args.world_name) {
+      throw new Error('Missing required argument: world_name');
+    }
+    const wiki_url = this.traveller_map_client.get_world_wiki_url(
+      args.world_name, 
+      args.sector_name, 
+      args.hex
+    );
+    return {
+      content: [{
+        type: 'text',
+        text: wiki_url
+      }]
+    };
+  }
+
+  private async handle_get_subsector_wiki_url(args: any): Promise<CallToolResult> {
+    if (!args.subsector_name) {
+      throw new Error('Missing required argument: subsector_name');
+    }
+    const wiki_url = this.traveller_map_client.get_subsector_wiki_url(args.subsector_name);
+    return {
+      content: [{
+        type: 'text',
+        text: wiki_url
+      }]
+    };
+  }
+
+  private async handle_get_sector_wiki_url(args: any): Promise<CallToolResult> {
+    if (!args.sector_name) {
+      throw new Error('Missing required argument: sector_name');
+    }
+    const wiki_url = this.traveller_map_client.get_sector_wiki_url(args.sector_name);
+    return {
+      content: [{
+        type: 'text',
+        text: wiki_url
+      }]
+    };
   }
 
   /**

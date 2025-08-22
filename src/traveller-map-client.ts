@@ -167,5 +167,39 @@ export class TravellerMapClient {
     return Buffer.from(await response.arrayBuffer());
   }
   
+  /**
+   * Construct a wiki URL for a Traveller world
+   * @param world_name Name of the world
+   * @param sector_name Name of the sector (optional)
+   * @param hex Hex location (optional)
+   * @returns URL to the Traveller Wiki page for the world
+   */
+  get_world_wiki_url(world_name: string, sector_name?: string, hex?: string): string {
+    // Based on the Traveller Map implementation, world pages use the "(world)" suffix
+    let url = `https://wiki.travellerrpg.com/${encodeURIComponent(world_name.replace(/ /g, '_'))}_(world)`;
+    if (sector_name && hex) {
+      url += `?sector=${encodeURIComponent(sector_name)}&hex=${encodeURIComponent(hex)}`;
+    }
+    return url;
+  }
+  
+  /**
+   * Construct a wiki URL for a Traveller subsector
+   * @param subsector_name Name of the subsector
+   * @returns URL to the Traveller Wiki page for the subsector
+   */
+  get_subsector_wiki_url(subsector_name: string): string {
+    return `https://wiki.travellerrpg.com/${encodeURIComponent(subsector_name.replace(/ /g, '_'))}_Subsector`;
+  }
+  
+  /**
+   * Construct a wiki URL for a Traveller sector
+   * @param sector_name Name of the sector
+   * @returns URL to the Traveller Wiki page for the sector
+   */
+  get_sector_wiki_url(sector_name: string): string {
+    return `https://wiki.travellerrpg.com/${encodeURIComponent(sector_name.replace(/ /g, '_'))}_Sector`;
+  }
+  
   
 }

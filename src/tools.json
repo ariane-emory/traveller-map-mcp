@@ -166,6 +166,59 @@
         "required": ["sector", "subsector"],
         "additionalProperties": false
       }
+    },
+    {
+      "name": "get_world_wiki_url",
+      "description": "Construct a wiki URL for a Traveller world",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "world_name": {
+            "type": "string",
+            "description": "Name of the world"
+          },
+          "sector_name": {
+            "type": "string",
+            "description": "Name of the sector (optional)"
+          },
+          "hex": {
+            "type": "string",
+            "description": "Hex location (optional)"
+          }
+        },
+        "required": ["world_name"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_subsector_wiki_url",
+      "description": "Construct a wiki URL for a Traveller subsector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "subsector_name": {
+            "type": "string",
+            "description": "Name of the subsector"
+          }
+        },
+        "required": ["subsector_name"],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_sector_wiki_url",
+      "description": "Construct a wiki URL for a Traveller sector",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sector_name": {
+            "type": "string",
+            "description": "Name of the sector"
+          }
+        },
+        "required": ["sector_name"],
+        "additionalProperties": false
+      }
     }
   ]
 }

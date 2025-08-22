@@ -42,6 +42,8 @@ The server communicates over stdio and is designed to be used with an MCP client
 
 To use this MCP server with qwen-code, add the following to your `~/.qwen/settings.json` file:
 
+Configuration for other agents (e.g., gemini-cli, Claude Code, etc.) should be similar. 
+
 ```json
 {
   "mcpServers": {
