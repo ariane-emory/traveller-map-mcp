@@ -40,7 +40,7 @@ The server communicates over stdio and is designed to be used with an MCP client
 
 ## Configuration
 
-To use this MCP server with Qwen, add the following to your `.qwen/settings.json` file:
+To use this MCP server with qwen-code, add the following to your `~/.qwen/settings.json` file:
 
 ```json
 {
@@ -64,10 +64,3 @@ For development with hot reloading:
 ```bash
 npm run dev
 ```
-
-## Examples
-
-See the [examples](examples/) directory for usage examples in different languages:
-
-- [JavaScript example](examples/js-example.js)
-- [Python example](examples/python-example.md)
