@@ -194,7 +194,7 @@
     },
     {
       "name": "get_world_wiki_url",
-      "description": "Construct a wiki URL for a Traveller world",
+      "description": "Generate a URL that can be used to retrieve detailed contextual information about a Traveller world including its history, culture, government, economy, notable features, and significance within its sector. This tool provides rich background information beyond basic UWP data, helping you understand the world's role in the broader Traveller universe.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -217,7 +217,7 @@
     },
     {
       "name": "get_subsector_wiki_url",
-      "description": "Construct a wiki URL for a Traveller subsector",
+      "description": "Generate a URL that can be used to retrieve comprehensive information about a Traveller subsector including regional history, political situation, major worlds, trade relationships, significant events, and cultural dynamics. This tool provides context about how worlds within a subsector relate to each other and form cohesive regions.",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -232,7 +232,7 @@
     },
     {
       "name": "get_sector_wiki_url",
-      "description": "Construct a wiki URL for a Traveller sector",
+      "description": "Generate a URL that can be used to access detailed sector information including galactic position, major powers, political overview, economic characteristics, demographics, historical events, and interstellar relations. This tool provides the broadest context for understanding a sector's place in the Traveller universe and its relationship to other regions.",
       "inputSchema": {
         "type": "object",
         "properties": {
