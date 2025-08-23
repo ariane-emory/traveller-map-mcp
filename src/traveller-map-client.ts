@@ -47,8 +47,39 @@ export class TravellerMapClient {
   }
   
   /**
-   * Search for sectors, subsectors, worlds, or regions
+   * Search for sectors, subsectors, worlds, or regions in the Traveller universe
+   * 
+   * Notes on query string format:
+   * - All searches are case-insensitive
+   * - By default, only matches at the start of names or after spaces are returned
+   *   (e.g., "sol" matches "Sol", "Solomani Rim", and "Nowa Sol" but not "Marsol")
+   * - Wildcard support:
+   *   - "*" and "%" - zero or more of any character
+   *   - "?" and "_" - exactly one character
+   *   - "[]" - character ranges (e.g., [0-5], [m-z], [89ABC])
+   *   - Example: "r*a" matches "Regina"
+   * - Word matching behavior:
+   *   - Specifying a wildcard within a word turns off "start of word" matching
+   *   - Multiple space-delimited words are joined as logical AND clauses
+   *   - Example: "so ri" matches "Solomani Rim"
+   * - Special prefixes:
+   *   - "exact:" - force exact match (e.g., "exact:sol")
+   *   - "like:" - "sounds like" match (e.g., "like:tear" finds "Terra")
+   *   - "uwp:" - search UWP fields (e.g., "uwp:a*" finds class A starports)
+   *   - "pbg:" - match PBG fields
+   *   - "zone:" - match Zone fields
+   *   - "alleg:" - match Allegiance fields
+   *   - "stellar:" - match stellar data (e.g., "stellar:"M? I*"" for red giants)
+   *   - "remark:" - require specific remarks (e.g., "remark:Hi" for high-population worlds)
+   *   - "in:" - search within a specific sector (e.g., "t* in:spin")
+   * - UWP Shortcut:
+   *   - Querying with XXXXXXX-X format (7 characters, hyphen, 1 character) is a shortcut for "uwp:"
+   * - Search Scope Limitation:
+   *   - Cannot perform scoped searches like "TL-F worlds in the Solomani Rim"
+   *   - Searches are performed on individual items (sectors, subsectors, worlds)
+   * 
    * @param query Search query
+   * @returns Search results
    */
   async search(query: string): Promise<any> {
     const params = new URLSearchParams({
