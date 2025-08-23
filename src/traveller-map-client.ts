@@ -78,6 +78,13 @@ export class TravellerMapClient {
    *   - Cannot perform scoped searches like "TL-F worlds in the Solomani Rim"
    *   - Searches are performed on individual items (sectors, subsectors, worlds)
    * 
+   * Examples:
+   * - "uwp:*-F in:\"Alpha Crucis\"" - Find all worlds with technology level F in the Alpha Crucis sector
+   * - "uwp:A******* in:\"Spinward Marches\"" - Find all worlds with starport class A in the Spinward Marches sector
+   * - "uwp:*-F" - Find all worlds with technology level F across all sectors
+   * - "in:\"Solomani Rim\"" - Find all objects in the Solomani Rim sector
+   * - "Regina" - Search for objects named Regina
+   * 
    * @param query Search query
    * @returns Search results
    */
