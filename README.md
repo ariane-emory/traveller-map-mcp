@@ -2,6 +2,8 @@
 
 This is a Model Context Protocol (MCP) server that provides access to the [Traveller Map API](https://travellermap.com/doc/api).
 
+For best resulre, I recommend combining this with https://github.com/ariane-emory/mediawiki-mcp-server pointed at Travellerwiki: that fork has been adjusted for compatibility with Travellerwiki's older API.
+
 ## Features
 
 The Traveller Map MCP provides the following tools:

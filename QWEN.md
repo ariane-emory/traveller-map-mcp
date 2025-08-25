@@ -4,7 +4,7 @@
 
 ## Project Description 
 
-Our goal is to create an MCP server for the Traveller Map (https://travellermap.com) in TypeScript that can be used to access its API.
+Our goal is to use node.js to create an MCP server for the Traveller Map (https://travellermap.com) in TypeScript that can be used to access its API.
 
 Do not make redundant tools, if two tools do the same thing we don't need both.
 

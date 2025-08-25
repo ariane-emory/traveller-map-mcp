@@ -90,7 +90,7 @@
     },
     {
       "name": "get_hex_data",
-      "description": "Get data for a specific hex in a sector in the Traveller universe",
+      "description": "Get data for a specific hex in a sector in the Traveller universe. Note: usually it is a good idea to follow this sup by using get_world_wiki_url to generate the URL of the Travellerwiki page for the system and using a web tool to retrieve the page to learn more about the system.",
       "inputSchema": {
         "type": "object",
         "properties": {
